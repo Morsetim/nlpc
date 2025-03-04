@@ -68,7 +68,7 @@ const LoginForm = () => {
       <CardHeader className="space-y-1">
         <div className="flex justify-center mb-2">
           <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-            <Lock className="w-6 h-6 text-primary" />
+            <Lock className="w-6 h-6 text-[#28a745]" />
           </div>
         </div>
         <CardTitle className="text-2xl font-semibold text-center">Sign in to your account</CardTitle>
@@ -111,7 +111,7 @@ const LoginForm = () => {
               </Label>
               <Button 
                 variant="link" 
-                className="text-xs font-medium text-primary p-0 h-auto"
+                className="text-xs font-medium text-[#28a745] p-0 h-auto"
                 type="button"
                 onClick={() => window.location.href = '/forgot-password'}
               >
@@ -194,7 +194,7 @@ const LoginForm = () => {
             <span className="w-full border-t"></span>
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-card px-2 text-muted-foreground">Demo Accounts</span>
+            <span className="bg-card px-2 font-semibold">Click on Member or Admin Account to login</span>
           </div>
         </div>
         <div className="grid gap-2">
