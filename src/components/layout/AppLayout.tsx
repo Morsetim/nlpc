@@ -132,7 +132,10 @@ const AppLayout: React.FC = () => {
                   )}
                 </div>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="justify-center text-primary" onSelect={() => navigate('/notifications')}>
+                <DropdownMenuItem 
+                className="justify-center text-primary" 
+                // onSelect={() => navigate('/notifications')}
+                >
                   View all notifications
                 </DropdownMenuItem>
               </DropdownMenuContent>

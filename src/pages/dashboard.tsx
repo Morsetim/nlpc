@@ -31,15 +31,17 @@ import { useAuth } from '@/contexts/AuthContext';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { logout } = useAuth()
+  const { logout, isAuthenticated } = useAuth()
   // Format currency
   const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-NG', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'NGN',
       minimumFractionDigits: 2
     }).format(value);
   };
+
+  // console.log(isAuthenticated, "dash")
   
   // Calculate total balance
   const totalBalance = cumulativeBalanceData.length > 0 
@@ -103,7 +105,7 @@ const Dashboard = () => {
                 <p className="text-2xl font-bold">{formatCurrency(totalBalance)}</p>
               </div>
               <div className="p-2 rounded-full bg-primary/10 text-primary">
-                <DollarSign size={20} />
+                <p>&#8358;</p>
               </div>
             </div>
             <div className="mt-3 text-xs text-muted-foreground flex items-center">
@@ -194,7 +196,7 @@ const Dashboard = () => {
                     axisLine={{ opacity: 0.3 }}
                   />
                   <YAxis 
-                    tickFormatter={(value) => `$${value}`}
+                    tickFormatter={(value) => `₦${value}`}
                     tick={{ fontSize: 12 }}
                     tickMargin={10}
                     axisLine={{ opacity: 0.3 }}
@@ -234,7 +236,7 @@ const Dashboard = () => {
                     axisLine={{ opacity: 0.3 }}
                   />
                   <YAxis 
-                    tickFormatter={(value) => `$${value}`}
+                    tickFormatter={(value) => `₦${value}`}
                     tick={{ fontSize: 12 }}
                     tickMargin={10}
                     axisLine={{ opacity: 0.3 }}
@@ -302,7 +304,7 @@ const Dashboard = () => {
               <Button 
                 className="mt-6 w-full" 
                 variant="outline"
-                onClick={() => navigate('/profile')}
+                // onClick={() => navigate('/profile')}
               >
                 View Full Profile
               </Button>
@@ -321,7 +323,7 @@ const Dashboard = () => {
               <Button 
                 variant="outline" 
                 size="sm"
-                onClick={() => navigate('/contributions')}
+                // onClick={() => navigate('/contributions')}
               >
                 View All
               </Button>
@@ -340,7 +342,7 @@ const Dashboard = () => {
                         ? 'bg-primary/10 text-primary' 
                         : 'bg-primary/5 text-primary/80'
                     }`}>
-                      {contribution.type === 'employer' ? <DollarSign size={16} /> : <Users size={16} />}
+                      {contribution.type === 'employer' ? <p>&#8358;</p> : <Users size={16} />}
                     </div>
                     <div>
                       <p className="text-sm font-medium">{contribution.description}</p>
@@ -379,7 +381,7 @@ const Dashboard = () => {
             <Button 
               variant="outline" 
               className="h-auto flex flex-col items-center justify-center p-4 btn-hover"
-              onClick={() => navigate('/statements')}
+              // onClick={() => navigate('/statements')}
             >
               <FileText className="h-6 w-6 mb-2" />
               <span>View Statements</span>
@@ -387,7 +389,7 @@ const Dashboard = () => {
             <Button 
               variant="outline" 
               className="h-auto flex flex-col items-center justify-center p-4 btn-hover"
-              onClick={() => navigate('/contributions')}
+              // onClick={() => navigate('/contributions')}
             >
               <Activity className="h-6 w-6 mb-2" />
               <span>Analyze Contributions</span>
@@ -395,7 +397,7 @@ const Dashboard = () => {
             <Button 
               variant="outline" 
               className="h-auto flex flex-col items-center justify-center p-4 btn-hover"
-              onClick={() => navigate('/profile')}
+              // onClick={() => navigate('/profile')}
             >
               <Users className="h-6 w-6 mb-2" />
               <span>Update Profile</span>
@@ -403,7 +405,7 @@ const Dashboard = () => {
             <Button 
               variant="outline" 
               className="h-auto flex flex-col items-center justify-center p-4 btn-hover"
-              onClick={() => navigate('/support')}
+              // onClick={() => navigate('/support')}
             >
               <Calendar className="h-6 w-6 mb-2" />
               <span>Contact Support</span>
