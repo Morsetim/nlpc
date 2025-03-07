@@ -61,7 +61,8 @@ const authReducer = (state: AuthState, action: AuthAction): AuthState => {
       };
     case 'LOGOUT':
       return { 
-        ...initialState 
+        ...initialState,
+        isAuthenticated: false, 
       };
     case 'RESET_ERROR':
       return { ...state, error: null };

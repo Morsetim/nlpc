@@ -21,6 +21,7 @@ const Login = () => {
   if (isAuthenticated) {
     return <Navigate to="/dashboard" replace />;
   }
+  
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-background to-accent p-4">
